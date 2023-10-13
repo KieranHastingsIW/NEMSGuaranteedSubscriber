@@ -1,8 +1,8 @@
 # GuaranteedSolaceSubscriber
 
-A simple java application that can be used as a subscriber using the JCSMP Solace native API 
+A simple java application that can be used as a subscriber using the JCSMP Solace native API.
 
-## Prerequisits
+## Prerequisites
 
     Maven version 3.9.4
     Java 17
@@ -10,15 +10,23 @@ A simple java application that can be used as a subscriber using the JCSMP Solac
 
 ## How to Run
 
-* Clone this repository to a directory of your chosing.
-* Configure the connection and Queue variable in the 'application.properties' file found under src-> main-> resources
+* Clone this repository to a directory of your choosing.
+
+* To connect this application to the solace broker you will need the following connection details
+  * HostName and Port
+  * VPN Name
+  * Queue Name
+  * Username
+  * Password
+    These will be provided to you separately.
+* Once you have received your credentials add them to the application.properties file found here `src-> main-> resources`
 * In the directory you cloned the repository into run `mvn clean install`
 
 ## Run locally 
 
 * Run `java -jar target/Gsub-1.0-SNAPSHOT.jar`
 
-## Run containorized using docker
+## Run containerized  using docker
 
 * Ensure docker desktop is running 
 * Run `docker-compose up --build `
