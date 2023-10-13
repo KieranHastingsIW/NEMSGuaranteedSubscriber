@@ -1,9 +1,13 @@
 # GuaranteedSolaceSubscriber
 A simple java application that can be used as a subscriber using the JCSMP Solace native API 
 
-* Clone this repository to a directory of your chosing.
-* Configure the connection and Queue variable in the 'application.properties' file found under src-> main-> resources
-* In the directory you cloned the repository into run `mvn clean install`
+## Prerequisits
+- Maven version 3.9.4
+Clone this repository to a directory of your chosing.
+
+Configure the connection and Queue variable in the 'application.properties' file found under src-> main-> resources
+
+In the directory you cloned the repository into run `mvn clean install`
 
 ## To run locally 
 #### Prerequisits 
