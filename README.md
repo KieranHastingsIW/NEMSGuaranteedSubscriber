@@ -2,9 +2,9 @@
 A simple java application that can be used as a subscriber using the JCSMP Solace native API 
 
 ## Prerequisits
-#### Maven version 3.9.4
-#### Java 17
-#### Docker for desktop (Optional)
+##### Maven version 3.9.4
+##### Java 17
+##### Docker for desktop (Optional)
 
 * Clone this repository to a directory of your chosing.
 * Configure the connection and Queue variable in the 'application.properties' file found under src-> main-> resources
