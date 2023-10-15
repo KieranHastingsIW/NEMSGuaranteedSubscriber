@@ -5,6 +5,8 @@ import java.util.Properties;
 
 import nz.govt.tewhatuora.Connection.PropertiesLoader;
 import nz.govt.tewhatuora.Connection.SolaceConnector;
+import nz.govt.tewhatuora.Service.EventLoader;
+
 import com.solace.messaging.MessagingService;
 import com.solace.messaging.config.profile.ConfigurationProfile;
 import com.solace.messaging.receiver.PersistentMessageReceiver;
@@ -55,6 +57,7 @@ public class Main {
                 // perhaps an error in processing? Should do extra checks to avoid duplicate processing
                 hasDetectedRedelivery = true;
             }
+            EventLoader.displayEvent(message);
             // Messages are removed from the broker queue when the ACK is received.
             // Therefore, DO NOT ACK until all processing/storing of this message is complete.
             // NOTE that messages can be acknowledged from any thread.

@@ -8,7 +8,6 @@ import java.util.Properties;
 public class SolaceConnector {
     public static Properties setProperties(Properties appProperties) throws IOException {
 
-
         Properties properties = new Properties();
         properties.setProperty(SolaceProperties.TransportLayerProperties.HOST, appProperties.getProperty("nems.broker.host"));          // host:port
         properties.setProperty(SolaceProperties.ServiceProperties.VPN_NAME, appProperties.getProperty("nems.broker.vpn"));     // message-vpn
