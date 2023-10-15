@@ -18,6 +18,7 @@ A simple java application that can be used as a subscriber using the JCSMP Solac
   * Queue Name
   * Username
   * Password
+  
     These will be provided to you separately.
 * Once you have received your credentials add them to the application.properties file found here `src-> main-> resources`
 * In the directory you cloned the repository into run `mvn clean install`
