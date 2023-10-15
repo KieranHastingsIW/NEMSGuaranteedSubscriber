@@ -42,7 +42,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>
-                                com.kieran.Main
+                                nz.govt.tewhatuora.Main
                             </mainClass>
                         </manifest>
                     </archive>

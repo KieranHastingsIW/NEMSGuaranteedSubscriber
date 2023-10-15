@@ -1,3 +1,6 @@
 /.idea
 /Gsub.jar
 /target
+
+### Creds
+src/main/resources/application.properties

@@ -1,4 +1,4 @@
-package com.kieran.Connection;
+package nz.govt.tewhatuora.Connection;
 
 import java.io.IOException;
 import java.io.InputStream;

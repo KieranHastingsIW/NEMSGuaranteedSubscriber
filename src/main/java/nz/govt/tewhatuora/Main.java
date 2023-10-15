@@ -1,10 +1,10 @@
-package com.kieran;
+package nz.govt.tewhatuora;
 
 import java.io.IOException;
 import java.util.Properties;
 
-import com.kieran.Connection.PropertiesLoader;
-import com.kieran.Connection.SolaceConnector;
+import nz.govt.tewhatuora.Connection.PropertiesLoader;
+import nz.govt.tewhatuora.Connection.SolaceConnector;
 import com.solace.messaging.MessagingService;
 import com.solace.messaging.config.profile.ConfigurationProfile;
 import com.solace.messaging.receiver.PersistentMessageReceiver;
@@ -28,7 +28,7 @@ public class Main {
         // }
         Properties appProperties = PropertiesLoader.loadProperties();
         final Properties properties =  SolaceConnector.setProperties(appProperties);
-        final String QUEUE_NAME = appProperties.getProperty("solace.broker.queue");
+        final String QUEUE_NAME = appProperties.getProperty("nems.broker.queue");
         final MessagingService messagingService = MessagingService.builder(ConfigurationProfile.V1)
                 .fromProperties(properties)
                 .build();
