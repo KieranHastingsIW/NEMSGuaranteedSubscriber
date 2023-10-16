@@ -1,4 +1,4 @@
-package com.kieran;
+package nz.govt.tewhatuora;
 
 
 import org.junit.jupiter.api.AfterEach;

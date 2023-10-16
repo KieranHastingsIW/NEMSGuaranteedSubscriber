@@ -9,8 +9,7 @@ import com.solace.messaging.receiver.PersistentMessageReceiver;
 import com.solace.messaging.resources.Queue;
 
 import nz.govt.tewhatuora.Service.EventLoader;
-import nz.govt.tewhatuora.Service.NemsConnector;
-import nz.govt.tewhatuora.Service.PropertiesLoader;
+import nz.govt.tewhatuora.Service.ApplicationPropertiesService;
 
 public class Main {
 
@@ -22,8 +21,8 @@ public class Main {
 
     /** This is the main app.  Use this type of app for receiving Guaranteed messages (e.g. via a queue endpoint). */
     public static void main(String[] args) throws InterruptedException, IOException {
-        Properties appProperties = PropertiesLoader.loadProperties();
-        final Properties properties =  NemsConnector.setProperties(appProperties);
+        Properties appProperties = ApplicationPropertiesService.loadProperties();
+        final Properties properties =  ApplicationPropertiesService.setProperties(appProperties);
         final String QUEUE_NAME = appProperties.getProperty("nems.broker.queue");
         final MessagingService messagingService = MessagingService.builder(ConfigurationProfile.V1)
                 .fromProperties(properties)

@@ -1,12 +1,26 @@
 package nz.govt.tewhatuora.Service;
 
-import com.solace.messaging.config.SolaceProperties;
-
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
-public class NemsConnector {
-    public static Properties setProperties(Properties appProperties) throws IOException {
+import com.solace.messaging.config.SolaceProperties;
+
+
+public class ApplicationPropertiesService {
+
+    public static Properties loadProperties() throws IOException {
+        Properties configuration = new Properties();
+        InputStream inputStream = ApplicationPropertiesService.class
+          .getClassLoader()
+          .getResourceAsStream("application.properties");
+        configuration.load(inputStream);
+        inputStream.close();
+        return configuration;
+    }
+
+
+        public static Properties setProperties(Properties appProperties) throws IOException {
 
         Properties properties = new Properties();
         properties.setProperty(SolaceProperties.TransportLayerProperties.HOST, appProperties.getProperty("nems.broker.host"));          // host:port

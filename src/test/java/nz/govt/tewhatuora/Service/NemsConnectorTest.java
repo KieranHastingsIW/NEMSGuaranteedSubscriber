@@ -1,4 +1,4 @@
-package com.kieran.Connection;
+package nz.govt.tewhatuora.Service;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,7 +10,7 @@ import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SolaceConnectorTest {
+class NemsConnectorTest {
 
     @BeforeEach
     void setUp() {

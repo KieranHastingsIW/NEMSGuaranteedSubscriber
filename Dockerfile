@@ -12,4 +12,4 @@
 FROM openjdk:17-jdk-slim
 WORKDIR /opt
 COPY /target /opt
-ENTRYPOINT ["java", "-jar", "./Gsub-1.0-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "./GuaranteedSubscriber-1.0.0.jar"]
