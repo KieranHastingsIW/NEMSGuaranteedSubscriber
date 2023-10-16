@@ -1,4 +1,4 @@
-package nz.govt.tewhatuora.Connection;
+package nz.govt.tewhatuora.Service;
 
 import java.io.IOException;
 import java.io.InputStream;

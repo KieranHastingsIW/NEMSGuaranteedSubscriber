@@ -3,14 +3,14 @@ package nz.govt.tewhatuora;
 import java.io.IOException;
 import java.util.Properties;
 
-import nz.govt.tewhatuora.Connection.PropertiesLoader;
-import nz.govt.tewhatuora.Connection.SolaceConnector;
-import nz.govt.tewhatuora.Service.EventLoader;
-
 import com.solace.messaging.MessagingService;
 import com.solace.messaging.config.profile.ConfigurationProfile;
 import com.solace.messaging.receiver.PersistentMessageReceiver;
 import com.solace.messaging.resources.Queue;
+
+import nz.govt.tewhatuora.Service.EventLoader;
+import nz.govt.tewhatuora.Service.NemsConnector;
+import nz.govt.tewhatuora.Service.PropertiesLoader;
 
 public class Main {
 
@@ -22,14 +22,8 @@ public class Main {
 
     /** This is the main app.  Use this type of app for receiving Guaranteed messages (e.g. via a queue endpoint). */
     public static void main(String[] args) throws InterruptedException, IOException {
-
-
-        // if (args.length < 3) {  // Check command line arguments
-        //     System.out.printf("Usage: <host:port> <message-vpn> <client-username> [password]%n%n");
-        //     System.exit(-1);
-        // }
         Properties appProperties = PropertiesLoader.loadProperties();
-        final Properties properties =  SolaceConnector.setProperties(appProperties);
+        final Properties properties =  NemsConnector.setProperties(appProperties);
         final String QUEUE_NAME = appProperties.getProperty("nems.broker.queue");
         final MessagingService messagingService = MessagingService.builder(ConfigurationProfile.V1)
                 .fromProperties(properties)
@@ -57,7 +51,11 @@ public class Main {
                 // perhaps an error in processing? Should do extra checks to avoid duplicate processing
                 hasDetectedRedelivery = true;
             }
+
+            // Where customer code can be implemeted to handel events before they are ACKed 
             EventLoader.displayEvent(message);
+
+
             // Messages are removed from the broker queue when the ACK is received.
             // Therefore, DO NOT ACK until all processing/storing of this message is complete.
             // NOTE that messages can be acknowledged from any thread.
