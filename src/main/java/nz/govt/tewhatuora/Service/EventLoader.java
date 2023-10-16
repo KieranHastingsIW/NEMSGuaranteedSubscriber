@@ -16,7 +16,7 @@ public class EventLoader {
     // Events.
     // below is an example of code that just prints the Event paylod to the comand
     // line
-    public static void displayEvent(InboundMessage message) {
+    public static void processEvent(InboundMessage message) {
         // System.out.printf("Raw Message \n%s \n", message);
         // System.out.printf("Message dump \n%s \n", message.dump());
 

@@ -52,7 +52,7 @@ public class Main {
                 hasDetectedRedelivery = true;
             }
             // Where customer code can be implemeted to handel events before they are ACKed 
-            EventLoader.displayEvent(message);
+            EventLoader.processEvent(message);
             // Messages are removed from the broker queue when the ACK is received.
             // Therefore, DO NOT ACK until all processing/storing of this message is complete.
             // NOTE that messages can be acknowledged from any thread.
