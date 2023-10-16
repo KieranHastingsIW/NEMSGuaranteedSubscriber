@@ -24,6 +24,8 @@ public class Main {
         Properties appProperties = ApplicationPropertiesService.loadProperties();
         final Properties properties =  ApplicationPropertiesService.setProperties(appProperties);
         final String QUEUE_NAME = appProperties.getProperty("nems.broker.queue");
+
+
         final MessagingService messagingService = MessagingService.builder(ConfigurationProfile.V1)
                 .fromProperties(properties)
                 .build();
@@ -39,7 +41,6 @@ public class Main {
             System.err.println("NOTE: see HowToEnableAutoCreationOfMissingResourcesOnBroker.java sample for how to construct queue with consumer app.");
             System.err.println("Exiting.");
             return;
-
         }
         // asynchronous anonymous receiver message callback
         receiver.receiveAsync(message -> {
@@ -50,15 +51,11 @@ public class Main {
                 // perhaps an error in processing? Should do extra checks to avoid duplicate processing
                 hasDetectedRedelivery = true;
             }
-
             // Where customer code can be implemeted to handel events before they are ACKed 
             EventLoader.displayEvent(message);
-
-
             // Messages are removed from the broker queue when the ACK is received.
             // Therefore, DO NOT ACK until all processing/storing of this message is complete.
             // NOTE that messages can be acknowledged from any thread.
-
             receiver.ack(message);  // ACKs are asynchronous
         });
 
