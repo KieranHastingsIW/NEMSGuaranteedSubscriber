@@ -25,7 +25,7 @@ A simple java application that can be used as a subscriber using the JCSMP Solac
 
 ## Run locally 
 
-* Run `java -jar target/GuaranteedSubscriber.jar`
+* Run `java -jar target/GuaranteedSubscriber-1.0.0.jar`
 
 ## Run containerized  using docker
 
