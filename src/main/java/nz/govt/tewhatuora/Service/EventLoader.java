@@ -30,9 +30,13 @@ public class EventLoader {
         DeathNotice deathNotice = gson.fromJson(jsonString, DeathNotice.class);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date=sdf.format(deathNotice.getDeathDate());  
-        System.out.printf(
-                "===============================================================\n|| NHI: %s    || Date: %s    ||\n===============================================================\n",
-                deathNotice.getNhi(), date);
+
+        String content = "|| NHI: " + deathNotice.getNhi() + " || Date: " + date + " || Topic: " + message.getDestinationName() + " ||";
+        String border = "=".repeat(content.length());
+
+        System.out.printf("%s\n%s\n%s\n", border, content, border );
+     
+                
 
     }
 
